@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AeroSense</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="p-4">
+
+<div class="max-w-4xl mx-auto">
+  <div class="text-center mb-8">
+    <h1 class="text-3xl font-bold mb-2 bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">AeroSense</h1>
+    <p class="text-gray-300 text-sm">Search cities to view real-time air quality with AQI, pollutants, and interactive charts.</p>
+  </div>
+
+  <div class="search-container mb-6">
+    <div class="space-y-4">
+      <input type="text" id="cityInput" placeholder="Enter city name..." class="w-full p-3 rounded-lg bg-gray-800/50 text-white placeholder-gray-400 border border-gray-700 focus:border-teal-400 focus:outline-none transition-colors">
+      <button id="searchBtn" class="w-full bg-gradient-to-r from-teal-500 to-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:from-teal-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-teal-500/25">
+        Search City
+      </button>
+    </div>
+  </div>
+
+  <div id="aqiCard" class="aqi-card hidden">
+    <div class="flex justify-between items-start mb-4">
+      <div>
+        <div id="cityName" class="text-xl font-bold text-white"></div>
+        <div id="lastUpdated" class="text-gray-400 text-sm mt-1"></div>
+      </div>
+      <div id="aqiValue" class="aqi-value"></div>
+    </div>
+    <div id="aqiCategory" class="mt-2 font-semibold text-lg"></div>
+    <div class="mt-6">
+      <canvas id="pollutantChart" height="200"></canvas>
+    </div>
+  </div>
+
+  <div class="bg-gray-800/30 rounded-xl p-6 border border-gray-700/50 mt-6">
+
+    <div class="mt-6 p-4 bg-blue-900/20 rounded-lg border border-blue-800/30">
+      <h3 class="font-semibold text-blue-300 mb-2">AQI Categories</h3>
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <div class="flex items-center"><div class="w-3 h-3 bg-green-400 rounded mr-2"></div> Good (0-50)</div>
+        <div class="flex items-center"><div class="w-3 h-3 bg-yellow-400 rounded mr-2"></div> Moderate (51-100)</div>
+        <div class="flex items-center"><div class="w-3 h-3 bg-orange-400 rounded mr-2"></div> Unhealthy for Sensitive (101-150)</div>
+        <div class="flex items-center"><div class="w-3 h-3 bg-red-400 rounded mr-2"></div> Unhealthy (151-200)</div>
+        <div class="flex items-center"><div class="w-3 h-3 bg-purple-400 rounded mr-2"></div> Very Unhealthy (201-300)</div>
+        <div class="flex items-center"><div class="w-3 h-3 bg-gray-800 rounded mr-2"></div> Hazardous (301+)</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-divider"></div>
+      <p class="text-gray-300 text-sm font-medium">© 2025 AeroSense By Pallavi Thakur</p>
+      <p class="text-gray-400 text-xs">Data provided by <span class="text-blue-300 hover:text-blue-200 transition-colors">World Air Quality Index (WAQI)</span></p>
+      <p class="text-gray-500 text-xs mt-1">Built with ❤️ using Chart.js & Tailwind CSS</p>
+    </div>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
