@@ -37,6 +37,7 @@ It also provides a guide for AQI categories, making it easy for users to underst
 - git clone https://github.com/cloudxplorer/AeroSense
 - cd AeroSense
 - python -m http.server 4444
+  
 Now go to your Browser
 - http://localhost:4444
 - **DEMO**:- [AeroSense](https://cloudxplorer.github.io/AeroSense/)
